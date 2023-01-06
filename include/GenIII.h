@@ -15,9 +15,6 @@ Rev.   Date         Author  Description
 
 #include <msp430x54xA.h>
 
-#define true                  0x01
-#define false                 0x00
-
 #define cells                 12 // 16 for blade 45 75W?
 
 

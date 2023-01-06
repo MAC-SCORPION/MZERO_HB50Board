@@ -11,7 +11,7 @@
  * System include files are contained here
  */
 #include <MP430DriverLib/driverlib/MSP430F5xx_6xx/inc/hw_memmap.h>
-#include <include/UC100015RevG.h>
+//#include <include/UC100015RevG.h>
 #include <include/GenIII.h>
 #include <stdint.h>
 #include <stdbool.h>

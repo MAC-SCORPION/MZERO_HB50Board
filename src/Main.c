@@ -2,15 +2,22 @@
 Copyright (c) 2007 Ultracell Corp.  All Rights Reserved.
 FileName: Main.c
 
-Description: Program start and executive loop
-
-Revision History
-Rev.   Date         Author  Description
-1.00   07/01/2011   GT      Production release
 
 ************************ includes *******************************************************/
 #include <include/Main.h>
-/************************ extern variables ***********************************************/
+
+/************************ extern functions **********************************************/
+
+extern void initialize(void);
+extern void I2Csetup(uint8_t);
+extern void CheckCommo(void);
+extern void ADC_Calculations(void);
+extern void A0_time(void);
+extern void setVout(float Vout);
+extern void LCD_init(void);
+extern void read_fixed_var(void);
+
+/************************ extern variables *********************************************/
 
 //ISR.c
 
@@ -35,26 +42,14 @@ const char HELLO3[] = "HB50G10000";
 //extern uint8_t USB_on;
 extern uint8_t USB_Status;
 extern uint8_t aa;
-extern int QQ ;
-uint8_t load;
+extern int QQ;
 extern uint8_t Blade50;
-
 extern uint8_t TxDataB1[12]; // Table of data to transmit
-
 extern uint8_t cartread;
 
-/************************ extern functions ***********************************************/
-extern void initialize(void);
-extern void CheckCommo(void);
-extern void ADC_Calculations(void);
-extern void A0_time(void);
-extern void setVout(float Vout);
-extern void LCD_init(void);
-extern void read_fixed_var(void);
-/************************ define constants ***********************************************/
 /************************ global variables ***********************************************/
+uint8_t load;
 float System_V;
-
 char Atime;
 
 
@@ -130,7 +125,6 @@ float PUMP1_cal;
 float PUMP2_cal;
 float PUMP3_cal;
 float PUMP4_cal;
-
 float Vtmp;
 
 /************************ internal functions **********************************************/
@@ -139,6 +133,7 @@ void SMBUSjump(void);
 void verify(void);
 void verifyUG(void);
 void UGmain(void);
+
 /************************ relocatable program code ***************************************/
 void main(void)
 {
